@@ -9,7 +9,7 @@ export const Menu = () => {
       <NavLink className={menuItemClassName} to='/'>
         Главная
       </NavLink>
-      <NavLink className={menuItemClassName} to='/new'>
+      <NavLink className={menuItemClassName} to='/posts/new'>
         Создать
       </NavLink>
       {/* <NavLink className={menuItemClassName} to='/timeattack'>

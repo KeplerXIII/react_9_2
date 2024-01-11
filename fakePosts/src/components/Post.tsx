@@ -1,14 +1,7 @@
+import { PostModel } from '../models'
 import { formatDateString } from './dateForm'
 
-export const Post = ({
-  id,
-  content,
-  created
-}: {
-  id: number
-  content: string
-  created: string
-}) => {
+export const Post = ({ id, content, created }: PostModel) => {
   return (
     <div className='post-card'>
       <img
