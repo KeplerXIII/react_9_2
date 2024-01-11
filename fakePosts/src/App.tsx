@@ -5,6 +5,7 @@ import { Menu } from './components/Menu'
 import './App.css'
 import { PostList } from './components/PostList'
 import { NewPost } from './components/PostNew'
+import { PostDetailed } from './components/PostDetailed'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<PostList />} />
           <Route path='/posts/new' element={<NewPost />} />
+          <Route path='/posts/:id' element={<PostDetailed />} />
         </Routes>
       </div>
     </div>

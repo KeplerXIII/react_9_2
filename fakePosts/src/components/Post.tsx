@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { formatDateString } from './dateForm'
 import { PostModel } from '../models'
+import { useNavigate } from 'react-router-dom'
 
 export const Post = ({ id, content, created }: PostModel) => {
   const [isEditing, setEditing] = useState(false)
   const [editedContent, setEditedContent] = useState(content)
   const [isDeleted, setDeleted] = useState(false)
+  const navigate = useNavigate()
 
   const handleEditClick = () => {
     setEditing(true)
@@ -39,6 +41,7 @@ export const Post = ({ id, content, created }: PostModel) => {
 
       if (response.ok) {
         setDeleted(true)
+        navigate('/')
       } else {
         console.error('Ошибка при удалении поста')
       }

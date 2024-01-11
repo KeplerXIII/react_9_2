@@ -1,6 +1,6 @@
 import { useFetch } from '../hooks/useFetch'
 import { PostModel } from '../models'
-import { Post } from './Post'
+import { PostSimple } from './PostSimple'
 
 export const PostList = () => {
   const { data, isLoading, hasError } = useFetch<PostModel[]>(
@@ -19,7 +19,7 @@ export const PostList = () => {
     <div>
       {data &&
         data.map((post) => (
-          <Post
+          <PostSimple
             key={post.id}
             id={post.id}
             content={post.content}

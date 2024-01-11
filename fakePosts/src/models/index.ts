@@ -4,6 +4,10 @@ export type PostModel = {
   created: string
 }
 
+export type PostModelDetailed = {
+  post: { id: number; content: string; created: string }
+}
+
 export type FetchData<T> = {
   data: T | undefined
   isLoading: boolean
