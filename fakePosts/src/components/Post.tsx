@@ -1,3 +1,5 @@
+import { formatDateString } from './dateForm'
+
 export const Post = ({
   id,
   content,
@@ -17,8 +19,8 @@ export const Post = ({
 
       <div className='post-content'>
         <div className='post-author'>#{id}</div>
-        <div className='post-author'>Создан: {created}</div>
-        <div className='post-author'>Alex Pu</div>
+        <div className='post-author'>Создан: {formatDateString(created)}</div>
+        <div className='post-author'>Автор: Alex Pu</div>
         <div className='post-text'>{content}</div>
       </div>
     </div>
