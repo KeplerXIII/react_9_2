@@ -4,7 +4,8 @@ import { PostModel } from '../models'
 
 export const Post = ({ id, content, created }: PostModel) => {
   const [isEditing, setEditing] = useState(false)
-  const [postContent, setPostContent] = useState(content)
+  const [editedContent, setEditedContent] = useState(content)
+  const [isDeleted, setDeleted] = useState(false)
 
   const handleEditClick = () => {
     setEditing(true)
@@ -17,7 +18,7 @@ export const Post = ({ id, content, created }: PostModel) => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ content: postContent })
+        body: JSON.stringify({ content: editedContent })
       })
 
       if (response.ok) {
@@ -37,12 +38,17 @@ export const Post = ({ id, content, created }: PostModel) => {
       })
 
       if (response.ok) {
+        setDeleted(true)
       } else {
         console.error('Ошибка при удалении поста')
       }
     } catch (error) {
       console.error('Ошибка при удалении поста', error)
     }
+  }
+
+  if (isDeleted) {
+    return null
   }
 
   return (
@@ -61,13 +67,13 @@ export const Post = ({ id, content, created }: PostModel) => {
         {isEditing ? (
           <div>
             <textarea
-              value={postContent}
-              onChange={(e) => setPostContent(e.target.value)}
+              value={editedContent}
+              onChange={(e) => setEditedContent(e.target.value)}
             />
             <button onClick={handleSaveClick}>Сохранить</button>
           </div>
         ) : (
-          <div className='post-text'>{postContent}</div>
+          <div className='post-text'>{editedContent}</div>
         )}
 
         <div>
