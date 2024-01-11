@@ -1,9 +1,9 @@
 export function formatDateString(dateString: string) {
-  const timestamp = parseInt(dateString, 10) // преобразуем строку в число
+  const timestamp = parseInt(dateString, 10)
   const dateObject = new Date(timestamp)
 
   const day = dateObject.getDate()
-  const month = dateObject.getMonth() + 1 // добавляем 1, так как месяцы начинаются с 0
+  const month = dateObject.getMonth() + 1
   const year = dateObject.getFullYear()
 
   const formattedDate = `${day
